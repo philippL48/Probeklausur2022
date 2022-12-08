@@ -1,9 +1,7 @@
 public class PrimeNumbers {
-
 	public static int compute (int n) {
 		int iterator = 0;
 		int result = 1;
-
 		while (iterator < n) {
 			result++;
 			boolean isPrime = true;
@@ -11,13 +9,16 @@ public class PrimeNumbers {
 			while (isPrime && test < result) {
 				if (result % test == 0) {	
 					isPrime = false;
-
 				} else {
 					test++;
 					}
 			}
-			iterator++;
+			if (isPrime) { //!!!!!!!!
+				iterator++;
+			}
+
 		}
+		System.out.println(result);
 		return result;
 	}
 	
@@ -30,13 +31,16 @@ public class PrimeNumbers {
 	}
 	
 	public static int product(int n) {
-		int result = 0;			
+		int result = 1; //war davor 0
 		for (int i = 1; i < n+1; i++) {
 			result = result * compute(i);
 		}
 		
 		return result;
 	}
-	
+
+	public static void main(String...strings) {
+		compute(5);
+	}
 
 }
